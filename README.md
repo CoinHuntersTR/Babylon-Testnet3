@@ -110,7 +110,47 @@ sudo journalctl -u babylond -f --no-hostname -o cat
 babylond status 2>&1 | jq .SyncInfo
 ```
 
+**Cüzdan Oluşturma**
+> `Cüzdanismi` yazan yeri silip kendinize bir cüzdan oluşturabilirsiniz.
 
+> Sizden bir şifre belirlemenizi isteyecek (2 kere aynı şifreyi gireceğiz.) unutmayacağınız bir şifre girin!
+
+> Size verilen gizli kelimeleri bir yere not etmeyi unutmayın! 
+
+```
+babylond keys add Cüzdanismi
+```
+
+> Eğer kullandığınız bir cüzdanı eklemek istiyorsanız. `Cüzdanismi` yazan yeri değiştirmeyi unutmayın!
+
+> Sizden şifre isteyecek (2 kere aynı şifreyi giriyoruz.)
+```
+babylond keys add Cüzdanismi --recvoer
+```
+
+**Cüzdanda Token Değerini Görme**
+> `Cüzdanismi` yazan yeri, verdiğiniz cüzdan ismi ile değiştirin. Cüzdanınıza token gelip gelmediğini kontrol etmiş olursunuz.
+```
+babylond q bank balances $(babylond keys show Cüzdanismi -a)
+```
+
+**BLS key oluşturuyoruz.**
+
+> Burada `Cüzdanismi` yazan yere, cüzdana verdiğiniz ismi girin.
+
+> BLS keyinizi bir yere not edersiniz.
+```
+babylond create-bls-key $(babylond keys show Cüzdanismi -a)
+```
+```
+sudo systemctl restart babylond
+```
+```
+sed -i -e "s|^key-name *=.*|key-name = \"wallet\"|" $HOME/.babylond/config/app.toml
+```
+```
+sed -i -e "s|^timeout_commit *=.*|timeout_commit = \"30s\"|" $HOME/.babylond/config/config.toml
+```
 
 **Babylon Explorer**
 > Tüm adımları tamamladıktan sonra [BURADAN](https://explorer.nodestake.org/babylon-testnet/staking) kendi validatorünüzü kontrol edebilirsiniz.
