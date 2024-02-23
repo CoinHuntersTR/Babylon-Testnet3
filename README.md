@@ -1,6 +1,6 @@
 # Babylon Kurulum Rehberi
 
-![babylon](https://user-images.githubusercontent.com/111747226/223374946-c71aa47c-a81b-4482-a71b-149df576898e.png)
+![babylon](https://pbs.twimg.com/profile_banners/1558731723243810816/1691512780/1500x500)
 
 
 
