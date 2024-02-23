@@ -6,7 +6,7 @@
 
 ## Sistem gereksinimleri:
 
-- **Ubuntu 20.04+**
+- **Ubuntu 22.04+**
 
 NODE TİPİ | CPU     | RAM      | SSD     |
 | ------------- | ------------- | ------------- | -------- |
@@ -26,15 +26,15 @@ sudo apt install -y curl build-essential git wget jq make gcc tmux chrony lz4 un
 
 ```
 sudo rm -rvf /usr/local/go/
-wget https://golang.org/dl/go1.19.3.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.19.3.linux-amd64.tar.gz
-rm go1.19.3.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.21.6.linux-amd64.tar.gz
+sudo tar -xvf go1.21.6.linux-amd64.tar.gz
+sudo mv go /usr/local
 
-echo 'export GOROOT=/usr/local/go' >> $HOME/.bash_profile
-echo 'export GOPATH=$HOME/go' >> $HOME/.bash_profile
-echo 'export GO111MODULE=on' >> $HOME/.bash_profile
-echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile && . $HOME/.bash_profile
-
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+source ~/.profile
+go version
 ```
 
 - **Binary Yüklemesi**
