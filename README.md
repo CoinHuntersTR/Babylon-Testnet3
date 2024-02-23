@@ -89,9 +89,7 @@ sudo systemctl daemon-reload
 ```
 sudo systemctl enable babylond
 ```
-```
-sudo systemctl start babylond
-```
+
 **Snapshot (Opsiyonel)**
 ```
 SNAP_NAME=$(curl -s https://ss-t.babylon.nodestake.org/ | egrep -o ">20.*\.tar.lz4" | tr -d ">")
@@ -104,3 +102,15 @@ sudo systemctl restart babylond
 ```
 sudo journalctl -u babylond -f --no-hostname -o cat
 ```
+
+
+**Node Tekrar Başlatıyoruz**
+> Senkronize olup olmadığımızı kontrol etmek için aşağıdaki kodu kullanıyoruz. `false` çıktısı aldığımızda işlem tamamdır. 
+```
+babylond status 2>&1 | jq .SyncInfo
+```
+
+
+
+**Babylon Explorer**
+> Tüm adımları tamamladıktan sonra [BURADAN](https://explorer.nodestake.org/babylon-testnet/staking) kendi validatorünüzü kontrol edebilirsiniz.
