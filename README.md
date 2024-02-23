@@ -152,5 +152,34 @@ sed -i -e "s|^key-name *=.*|key-name = \"wallet\"|" $HOME/.babylond/config/app.t
 sed -i -e "s|^timeout_commit *=.*|timeout_commit = \"30s\"|" $HOME/.babylond/config/config.toml
 ```
 
+**Validator Oluşturuyoruz..**
+
+> `Cüzdanismi` yazan yere kendi cüzdan adınızı giriyoruz.
+
+> `MonikerName` yerine kendi verdiğiniz Moniker adınızı giriyoruz.
+
+> `website` "" içine kendi twitter veya websitesinizi ekleyebilirsiniz.
+
+>  `details` "" içine istediğiniz bir şey yazabilirsiniz. 
+```
+babylond tx checkpointing create-validator \
+--amount=1000000ubbn \
+--pubkey=$(babylond tendermint show-validator) \
+--moniker=MonikerName \
+--details="Coin Hunters Community" \
+--website="" \
+--chain-id=bbn-test-3 \
+--commission-rate=0.10 \
+--commission-max-rate=0.20 \
+--commission-max-change-rate=0.01 \
+--min-self-delegation=1 \
+--from=Cüzdanismi \
+--gas-prices=0.1ubbn \
+--gas-adjustment=1.5 \
+--gas=auto \
+-y
+```
+
+
 **Babylon Explorer**
 > Tüm adımları tamamladıktan sonra [BURADAN](https://explorer.nodestake.org/babylon-testnet/staking) kendi validatorünüzü kontrol edebilirsiniz.
