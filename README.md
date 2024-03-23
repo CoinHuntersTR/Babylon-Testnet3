@@ -20,5 +20,5 @@ NODE TİPİ | CPU     | RAM      | SSD     |
 sudo apt update && sudo apt upgrade -y
 ```
 ```
-wget -q -O dymension.sh https://raw.githubusercontent.com/CoinHuntersTR/Dymension-Mainnet/main/dymension.sh && chmod +x dymension.sh && ./dymension.sh
+wget -q -O babylon.sh https://raw.githubusercontent.com/CoinHuntersTR/Babylon-Testnet3/main/babylon.sh && chmod +x babylon.sh && ./babylon.sh
 ```
